@@ -1,48 +1,52 @@
 package ru.skypro;
 
-public class Griffindor extends Person{
-    private int blago;
-    private int chest;
-    private int hrabrost;
-    public Griffindor(String name, int strenght, int transgres, int blago, int chest, int hrabrost){
+public class Griffindor extends Hogwards{
+
+    private final int nobility;
+    private final int honour;
+    private final int bravery;
+
+    public Griffindor(String name, int strenght, int transgres, int nobility, int honour, int bravery){
         super(name, strenght, transgres);
-        this.blago = blago;
-        this.chest = chest;
-        this.hrabrost = hrabrost;
+        this.nobility = nobility;
+        this.honour = honour;
+        this.bravery = bravery;
+    }
+    public int getNobility() {
+        return nobility;
+    }
+    public int getHonour() {
+        return honour;
+    }
+    public int getBravery() {
+        return bravery;
     }
 
-    public int getBlago() {
-        return blago;
+    @Override
+    public String toString() {
+        return super.toString() + ", Благородство студента " + nobility + ", честь равна " + honour + ", храбрость равна " + bravery + ".";
     }
-
-    public void setBlago(int blago) {
-        this.blago = blago;
-    }
-
-    public int getChest() {
-        return chest;
-    }
-
-    public void setChest(int chest) {
-        this.chest = chest;
-    }
-
-    public int getHrabrost() {
-        return hrabrost;
-    }
-
-    public void setHrabrost(int hrabrost) {
-        this.hrabrost = hrabrost;
-    }
-    public void Opis() {
-        System.out.println("Имя студента " + getName() + " Сила " + getStrenght() + " Расстояние трансгрессии " + getTransgres() + " Благородство " + getBlago() + " Честь " + getChest() + " Храбрость " + getHrabrost());
-    }
-    public static void SravnenieBlago(Griffindor[]griffindor, int one, int two) {
-        if(griffindor[one].getBlago() > griffindor[two].getBlago()) {
-            System.out.println(griffindor[one].getBlago() + " благороднее, чем " + griffindor[two].getBlago());
+    public void compareGriffindor(Griffindor student) {
+        if (this.nobility > student.getNobility()) {
+            System.out.println("Благородство " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.nobility == student.getNobility()) {
+            System.out.println("Благородство " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Благородство " + this.getName() + " ниже чем у " + student.getName());
         }
-        else if(griffindor[two].getBlago() > griffindor[one].getBlago()) {
-            System.out.println(griffindor[two].getName() + " благороднее, чем " + griffindor[one].getName());
+        if (this.honour > student.getHonour()) {
+            System.out.println("Честь " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.honour == student.getHonour()) {
+            System.out.println("Честь " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Честь " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.bravery > student.getBravery()) {
+            System.out.println("Храбрость " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.bravery == student.getBravery()) {
+            System.out.println("Храбрость " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Храбрость " + this.getName() + " ниже чем у " + student.getName());
         }
     }
 }

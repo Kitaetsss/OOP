@@ -1,45 +1,67 @@
 package ru.skypro;
 
-public class Puffendui extends Person {
-    private int trud;
-    private int vernost;
-    private int chestnost;
-    public Puffendui(String name, int strenght, int transgres, int trud,int vernost, int chestnost) {
-        super(name, strenght,transgres);
-        this.trud = trud;
-        this.vernost = vernost;
-        this.chestnost = chestnost;
+public class Puffendui extends Hogwards {
+    private int work;
+    private int loyalty;
+    private int honesty;
+
+    public Puffendui(String name, int strenght, int transgres, int work, int loyalty, int honesty) {
+        super(name, strenght, transgres);
+        this.work = work;
+        this.loyalty = loyalty;
+        this.honesty = honesty;
     }
 
-    public int getTrud() {
-        return trud;
+    public int getWork() {
+        return work;
     }
 
-    public void setTrud(int trud) {
-        this.trud = trud;
+    public void setWork(int work) {
+        this.work = work;
     }
 
-    public int getVernost() {
-        return vernost;
+    public int getLoyalty() {
+        return loyalty;
     }
 
-    public void setVernost(int vernost) {
-        this.vernost = vernost;
+    public void setLoyalty(int loyalty) {
+        this.loyalty = loyalty;
     }
 
-    public int getChestnost() {
-        return chestnost;
+    public int getHonesty() {
+        return honesty;
     }
 
-    public void setChestnost(int chestnost) {
-        this.chestnost = chestnost;
+    @Override
+    public String toString() {
+        return super.toString() + ", Трудолюбие " + work + ", верность " + loyalty + ", честность " + honesty + ".";
     }
-    public static void SravnenieVernosti(Puffendui[]puffendui, int one, int two) {
-        if(puffendui[one].getVernost() > puffendui[two].getVernost()) {
-            System.out.println(puffendui[one].getName() + " вернее, чем " + puffendui[two].getName());
+
+    public void setHonesty(int honesty) {
+        this.honesty = honesty;
+    }
+
+    public void comparePuffendui(Puffendui student) {
+        if (this.work > student.getWork()) {
+            System.out.println("Трудолюбие " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.work == student.getWork()) {
+            System.out.println("Трудолюбие " + getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Трудолюбие " + this.getName() + " ниже чем у " + student.getName());
         }
-        else if(puffendui[two].getVernost() > puffendui[one].getVernost()) {
-            System.out.println(puffendui[two].getName() + " вернее, чем " + puffendui[one].getName());
+        if (this.loyalty > student.getLoyalty()) {
+            System.out.println("Верность " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.loyalty == student.getLoyalty()) {
+            System.out.println("Верность " + getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Верность " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.honesty > student.getHonesty()) {
+            System.out.println("Честность " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.honesty == student.getHonesty()) {
+            System.out.println("Честность " + getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Честность " + this.getName() + " ниже чем у " + student.getName());
         }
     }
 }

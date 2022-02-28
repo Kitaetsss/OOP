@@ -1,65 +1,99 @@
 package ru.skypro;
 
-public class Slizerin extends Person{
-    private int hitrost;
-    private int reshitelnost;
-    private int ambicii;
-    private int nahodchivost;
-    private int vlast;
-    public Slizerin(String name, int strenght, int transgres, int hitrost, int reshitelnost, int ambicii, int nahodchivost, int vlast) {
+public class Slizerin extends Hogwards{
+    private int trick;
+    private int determination;
+    private int ambitions;
+    private int resourcefulness;
+    private int authority;
+    public Slizerin(String name, int strenght, int transgres, int trick, int determination, int ambitions, int resourcefulness, int authority) {
         super(name, strenght, transgres);
-        this.hitrost = hitrost;
-        this.reshitelnost = reshitelnost;
-        this.ambicii = ambicii;
-        this.nahodchivost = nahodchivost;
-        this.vlast = vlast;
+        this.trick = trick;
+        this.determination = determination;
+        this.ambitions = ambitions;
+        this.resourcefulness = resourcefulness;
+        this.authority = authority;
     }
 
-    public int getHitrost() {
-        return hitrost;
+    public int getTrick() {
+        return trick;
     }
 
-    public void setHitrost(int hitrost) {
-        this.hitrost = hitrost;
+    public void setTrick(int trick) {
+        this.trick = trick;
     }
 
-    public int getReshitelnost() {
-        return reshitelnost;
+    public int getDetermination() {
+        return determination;
     }
 
-    public void setReshitelnost(int reshitelnost) {
-        this.reshitelnost = reshitelnost;
+    public void setDetermination(int determination) {
+        this.determination = determination;
     }
 
-    public int getAmbicii() {
-        return ambicii;
+    public int getAmbitions() {
+        return ambitions;
     }
 
-    public void setAmbicii(int ambicii) {
-        this.ambicii = ambicii;
+    public void setAmbitions(int ambitions) {
+        this.ambitions = ambitions;
     }
 
-    public int getNahodchivost() {
-        return nahodchivost;
+    public int getResourcefulness() {
+        return resourcefulness;
     }
 
-    public void setNahodchivost(int nahodchivost) {
-        this.nahodchivost = nahodchivost;
+    public void setResourcefulness(int resourcefulness) {
+        this.resourcefulness = resourcefulness;
     }
 
-    public int getVlast() {
-        return vlast;
+    public int getAuthority() {
+        return authority;
     }
 
-    public void setVlast(int vlast) {
-        this.vlast = vlast;
+    public void setAuthority(int authority) {
+        this.authority = authority;
     }
-    public static void  SreavnenieVlasti(Slizerin[]slizerin, int one, int two){
-        if (slizerin[one].getVlast() > slizerin[two].getVlast()) {
-            System.out.println(slizerin[one].getName() + " жаждет власти больше, чем " + slizerin[two].getName());
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Хитрость " + trick + ", решимость " + determination + ", амбиции " + ambitions + " , находчивость " + resourcefulness + " , жажда власти " + authority;
+    }
+    public void compareSlizerin(Slizerin student) {
+        if (this.trick > student.getTrick()) {
+            System.out.println("Хитрость " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.trick == student.getTrick()) {
+            System.out.println("Хитрость " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Хитрость " + this.getName() + " ниже чем у " + student.getName());
         }
-        else if(slizerin[one].getVlast() < slizerin[two].getVlast()) {
-            System.out.println(slizerin[two].getName() + " жаждет власти больше, чем " + slizerin[one].getName());
+        if (this.determination > student.getDetermination()) {
+            System.out.println("Решимость " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.determination == student.getDetermination()) {
+            System.out.println("Решимость " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Решимость " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.ambitions > student.getAmbitions()) {
+            System.out.println("Амбиции " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.ambitions == student.getAmbitions()) {
+            System.out.println("Амбиции " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Амбиции " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.resourcefulness > student.getResourcefulness()) {
+            System.out.println("Находчивость " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.resourcefulness == student.getResourcefulness()) {
+            System.out.println("Находчивость " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Находчивость " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.authority > student.getAuthority()) {
+            System.out.println("Жажда власти " + this.getName() + " выше чем у " + student.getName());
+        }else if (this.authority == student.getAuthority()) {
+            System.out.println("Жажда власти " + getName() + " и " + student.getName() + " равны.");
+        }else {
+            System.out.println("Жажда власти " + this.getName() + " ниже чем у " + student.getName());
         }
     }
 }

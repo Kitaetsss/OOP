@@ -1,45 +1,64 @@
 package ru.skypro;
 
-public class Kogtevran extends Person{
-    private int um;
-    private int mudrost;
-    private int tvorchestvo;
-    public Kogtevran(String name, int strenght, int transgres, int um, int mudrost, int tvorchestvo) {
+public class Kogtevran extends Hogwards{
+    private int mind;
+    private int wisdom;
+    private int creation;
+    public Kogtevran(String name, int strenght, int transgres, int mind, int wisdom, int creation) {
         super(name, strenght, strenght);
-        this.um = um;
-        this.mudrost = mudrost;
-        this.tvorchestvo = tvorchestvo;
+        this.mind = mind;
+        this.wisdom = wisdom;
+        this.creation = creation;
     }
 
-    public int getUm() {
-        return um;
+    public int getMind() {
+        return mind;
     }
 
-    public void setUm(int um) {
-        this.um = um;
+    public void setMind(int mind) {
+        this.mind = mind;
     }
 
-    public int getMudrost() {
-        return mudrost;
+    public int getWisdom() {
+        return wisdom;
     }
 
-    public void setMudrost(int mudrost) {
-        this.mudrost = mudrost;
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
     }
 
-    public int getTvorchestvo() {
-        return tvorchestvo;
+    public int getCreation() {
+        return creation;
     }
-
-    public void setTvorchestvo(int tvorchestvo) {
-        this.tvorchestvo = tvorchestvo;
+    public void setCreation(int creation) {
+        this.creation = creation;
     }
-    public static void SravnenieUma(Kogtevran[]kogtevran, int one, int two) {
-        if(kogtevran[one].getUm() > kogtevran[two].getUm()) {
-            System.out.println(kogtevran[one].getName() + " умнее, чем " + kogtevran[two].getName());
+        @Override
+        public String toString() {
+            return super.toString() + ", Ум " + mind + ", мудрость " + wisdom + ", креативность " + creation + ".";
         }
-        else if(kogtevran[two].getUm() > kogtevran[one].getUm()) {
-            System.out.println(kogtevran[two].getName() + " умнее, чем " + kogtevran[one].getName());
+    public void compareKogtevran(Kogtevran student) {
+
+        if (this.mind > student.getMind()) {
+            System.out.println("Ум " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.mind == student.getMind()) {
+            System.out.println("Ум " + this.getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Ум " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.wisdom > student.getWisdom()) {
+            System.out.println("Мудрость " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.wisdom == student.getWisdom()) {
+            System.out.println("Мудрость " + this.getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Мудрость " + this.getName() + " ниже чем у " + student.getName());
+        }
+        if (this.creation > student.getCreation()) {
+            System.out.println("Креативность " + this.getName() + " выше чем у " + student.getName());
+        } else if (this.creation == student.getCreation()) {
+            System.out.println("Креативность " + this.getName() + " и " + student.getName() + " равны.");
+        } else {
+            System.out.println("Креативность " + this.getName() + " ниже чем у " + student.getName());
         }
     }
 }
